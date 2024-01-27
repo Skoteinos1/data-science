@@ -1,0 +1,88 @@
+CREATE TABLE tabl_name (
+       column1 datatype constraint,
+       column2 datatype constraint,
+       column3 datatype constraint,
+       ....
+);
+
+# Constraints
+NOT NULL
+UNIQUE
+DEFAULT
+INDEX
+
+# Insert record into table
+INSERT INTO table_name (col1, col2, col3, ...) VALUES (val1, val2, val3, ...);
+INSERT INTO table_name VALUES (val1, val2, val3, ...);
+
+# SELECT is used to fetch the data, tada is stored in result table
+SELECT col1, col2, ... FROM table_name;
+SELECT * FROM table_name;
+
+# ORDER BY sorting records
+SELECT * FROM table_name ORDER BY col1, col2 ASC|DESC;
+
+# WHERE for filtering data
+SELECT * FROM table_name WHERE condition;
+
+# command in multiple rows.  ; ends command
+SELECT *
+FROM table_name
+WHERE condition;
+
+# Aggregate functions
+COUNT()
+SUM()
+AVF()
+MIN()/MAX()
+
+# UPDATE - modify data. Without WHERE it will edit all rows
+UPDATE table_name
+SET col1 = val1, col2 = val2, ...
+WHERE condition;
+
+# DELETE
+DELETE FROM table_name WHERE condition;
+DELETE * FROM table_name; # ALL rows gone
+
+DROP TABLE tabl_name;  # Deletes whole table in database
+TRUNCATE TABLE table_name;  # Deletes all rows
+
+TRUNCATE TABLE = Faster, non-logged, resets auto-increment, irreversible.
+DELETE * = Slower, logged, preserves auto-increment, can be rolled back.
+But they both remove rows from the table, they differ in approach and implications
+
+
+-- Example
+-- create a table
+CREATE TABLE students (
+  id INTEGER PRIMARY KEY,
+  name TEXT NOT NULL,
+  last_name TEXT,
+  gender TEXT NOT NULL
+);
+
+-- insert some values
+INSERT INTO students VALUES (1, 'Ryan', 'Aber', 'M');
+INSERT INTO students VALUES (2, 'Joanna', 'Baber','F');
+INSERT INTO students VALUES (3, 'Bob', 'Caber', 'M');
+INSERT INTO students VALUES (4, 'Jolene', 'Daber', 'F');
+INSERT INTO students VALUES (5, 'Bob', 'Eaber', 'M');
+
+-- fetch some values
+-- SELECT * FROM students WHERE gender = 'F';
+-- SELECT name, gender FROM students ORDER BY name DESC;
+-- SELECT * FROM students WHERE gender = 'M' AND name = 'Bob';
+-- SELECT COUNT(*) FROM students;
+-- SELECT MAX(id) FROM students;
+-- SELECT MIN(id) FROM students;
+-- SELECT SUM(id) FROM students;
+
+-- SELECT * FROM students where id = 2;
+UPDATE students SET last_name = 'Laber' WHERE id = 2;
+-- SELECT * FROM students where id = 2;
+
+DELETE FROM students WHERE name = 'Jolene';
+
+SELECT * FROM students;
+
