@@ -1,5 +1,4 @@
-# data-science
-Data Scientist courses homeworks and Lessons
+# Data Science courses homeworks and Lessons
 
 ![Picture of Data Scientist](https://github.com/Skoteinos1/data-science/blob/main/data_science.jpg)  
 
