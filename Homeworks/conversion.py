@@ -1,3 +1,22 @@
+'''
+Pseudo code:
+
+set variable 'num1'
+set variable 'num2'
+set variable 'num3'
+set variable 'string1'
+
+convert 'num1' into integer
+convert 'num2' into a float
+convert 'num3' into a String
+convert 'string1' into an integer
+
+output 'num1'
+output 'num2'
+output 'num3'
+output 'string1'
+'''
+
 # Starting variables
 num1 = 99.23
 num2 = 23

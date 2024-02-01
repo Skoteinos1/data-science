@@ -1,3 +1,13 @@
+'''
+Pseudo code:
+
+request input from the user and store it into variable called 'name'
+request input from the user and store it into variable called 'age'
+request input from the user and store it into variable called 'house_number'
+request input from the user and store it into variable called 'street'
+output 'name', 'age', 'house_number' and 'street' in single sentence
+'''
+
 # Requests users name, age, house number and street name
 name = input("Enter your name: ")
 age =  input("How old are you? ")
