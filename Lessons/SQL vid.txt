@@ -64,7 +64,7 @@ CREATE TABLE students (
 
 -- insert some values
 INSERT INTO students VALUES (1, 'Ryan', 'Aber', 'M');
-INSERT INTO students VALUES (2, 'Joanna', 'Baber','F');
+--INSERT INTO students VALUES (2, 'Joanna', 'Baber','F');
 INSERT INTO students VALUES (3, 'Bob', 'Caber', 'M');
 INSERT INTO students VALUES (4, 'Jolene', 'Daber', 'F');
 INSERT INTO students VALUES (5, 'Bob', 'Eaber', 'M');
