@@ -1,17 +1,29 @@
 import pandas as pd
 from sklearn.linear_model import LogisticRegression
+import numpy as np
+import seaborn as sns
+import matplotlib.pyplot as plt
+from sklearn.model_selection import train_test_split
 
+# Load data
+df = pd.read_csv('MedData.csv')
+df.head()
 
+# Scatterplot to see patterns in our observations
+sns.scatterplot(data=df, x='Harmonexin', y='Outcome')
+plt.show()
 
+# Determine your independent and dependent variables
+X = df['Harmonexin'].values
+y = df['Outcome'].values  # Disease outcome: 1=yes, 0=no
 
-
-
-
+# Making sure the input data is in ap appropriately shaped object
 X.shape
 
 X = X.reshape(-1,1)
 X.shape
 
+# Fitting the Logistic Regression model
 clf = LogisticRegression().fit(X, y)
 
 # Make a prediction
@@ -23,10 +35,7 @@ y_pred2 = clf.predict([[220]])
 print("Outcome for Harmonexin level of 120: ", y_pred2)
 
 # Check it by doing math yourself
-clf.coef_, clf.intercept_
-
-(array[[0.03]]), (array[[-5.03]])
-
+clf.coef_, clf.intercept_  # (array[[0.03]]), (array[[-5.03]])
 
 # Training and Testing Data
 X_train, X_test, y_train, y_test = train_test_split(X, y, tesst_size=0.25, random_state=0)
