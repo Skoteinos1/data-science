@@ -1,4 +1,5 @@
-
+import pandas as pd
+from sklearn.linear_model import LogisticRegression
 
 
 
@@ -37,3 +38,31 @@ log_reg.fit(X_train, y_train)
 # make predictions on a test data
 y_pred = log_reg.predict(X_test).reshape(-1, 1)
 y_pred[:10]
+
+
+# Measuring a model's performance
+# Use score method to get accurqacy of model
+score = log_reg.score(X_test, y_test)
+print('Accuracy: {}'.format(score))  # Accuracy above 75% should be fine
+
+from sklearn.metrics import confusion_matrix
+
+classes = ['No', 'Yes']
+conf_mat = confusion_matrix(y_test, y_pred)
+cm_df = pd.Dataframe(conf_mat, columns=classes, index=classes)
+cm_df
+
+# just checking that the labels are accurate
+# if they are, then the row totals should equal the respective sums below
+(y_test == 1).sum(), (y_test == 0).sum()
+# (62, 130)
+
+# Clasification Rate (Accuracy) alson called the Hit rate
+classification_rate = (conf_mat[0, 0] + conf_mat[1,1])/ conf_mat.sum()
+print(f'{classification_rate:.2%}')
+
+# Misclassification rate, the ones that model didn't get right
+misclassification_rate = (conf_mat[0,1] + conf_mat[1,0])/conf_mat.sum()
+print(f'{misclassification_rate:.2%}')
+
+
