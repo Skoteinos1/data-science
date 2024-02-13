@@ -1,11 +1,19 @@
 import sqlite3
 
+def create_student(name:str, grade:int):
+    conn = sqlite3.connect('database.db')
+    # ...
+    conn.close()
+
+
 conn = sqlite3.connect('database.db')  # Connect/create db
 cursor = conn.cursor()  # we nned this to move arround
 
 
+
+
 cursor.execute('''
-    CREATE TABLE IF NOT EXISTS user(
+    CREATE TABLE IF NOT EXISTS student(
                id INTEGER PRIMARY KEY AUTOINCREMENT,
                name VARCHAR(255),
                grade INTEGER
@@ -17,10 +25,8 @@ name = 'Jack'
 grade = 80
 
 cursor.execute('''
-    CREATE TABLE user(
                INSERT INTO student(name, grade)
                VALUES (?,?)
-    );
 ''', (name, grade))
 conn.commit()
 
@@ -30,11 +36,26 @@ people = [
     ('Bob', 80),
 ]
 
-# cursor.arraysize
+cursor.execute('''
+''')
 
 
 # GET VALUES
 cursor.execute('''
     SELECT * FROM student
+    WHERE name = 'Jack'
 ''')
 print(cursor.fetchall())
+print(cursor.fetchone())
+
+# UPDATE
+cursor.execute('''
+               UPDATE student
+               SET grade = 40
+
+''')
+
+
+
+
+conn.close()  # Always close connection
